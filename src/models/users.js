@@ -22,7 +22,6 @@ User.getAllUsers = (result) => {
             //donc il passe bien là mais je veux qu'il retourne les résultats moi
             console.log('Success !');
             result(null,res);
-
         }
     })
 };

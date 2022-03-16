@@ -1,6 +1,6 @@
 const UsersModel = require('../models/users');
 
-//test idk à quoi ça sert
+//get all users
 exports.getUsersList = (req, res) => {
     UsersModel.getAllUsers((err, users) => {
         console.log("Super c'est tous les utilisateurs !");

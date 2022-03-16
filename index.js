@@ -14,8 +14,12 @@ app.get('/', (req, res) => {
 //import de users route
 const usersRoutes = require('./src/routes/users.route');
 
+const flatsRoutes = require('./src/routes/flats.route');
+
 //on créer la route
 //et je récupère tout ce que j'ai sur mes utilisateurs en gros
 app.use('/utilisateurs', usersRoutes);
+
+app.use('/appartements', flatsRoutes);
 
 

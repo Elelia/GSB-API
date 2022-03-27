@@ -2,14 +2,14 @@ var dbConn = require('../../dbconfig');
 
 var User = (user) => {
     this.num = num;
-        this.login = user.login;
-        this.mdp = user.mdp;
-        this.nom = user.nom;
-        this.prenom = user.prenom;
-        this.adresse = user.adresse;
-        this.codeVille = user.codeVille;
-        this.telephone = user.telephone;
-        this.type = user.type;
+    this.login = user.login;
+    this.mdp = user.mdp;
+    this.nom = user.nom;
+    this.prenom = user.prenom;
+    this.adresse = user.adresse;
+    this.codeVille = user.codeVille;
+    this.telephone = user.telephone;
+    this.type = user.type;
 }
 
 User.getAllUsers = (result) => {
@@ -19,7 +19,6 @@ User.getAllUsers = (result) => {
             result(null,err);
         } 
         else {
-            //donc il passe bien là mais je veux qu'il retourne les résultats moi
             console.log('Success !');
             result(null,res);
         }

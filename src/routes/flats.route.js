@@ -4,7 +4,13 @@ const router = express.Router();
 
 const FlatsController = require('../controller/flats.controller');
 
-//get all utilisateurs
+//get all flats
 router.get('/', FlatsController.getFlatsList);
+
+//get flats numéro by id prop
+router.get('/posseder/:id', FlatsController.getFlatsListByProp);
+
+//get flats by numéro
+router.get('/:num', FlatsController.getFlatsById);
 
 module.exports = router;

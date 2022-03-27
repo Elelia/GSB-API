@@ -1,25 +1,40 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
+const bodyParser = require('body-parser');
 
 app.listen(port, () => {
     console.log(`Serveur à l'écoute ${port}`);
 })
+
+//parse request data content type application/x-www
+app.use(bodyParser.urlencoded({extended: false}));
+
+//parse request data type application/json
+app.use(bodyParser.json());
+
+//middleware
+app.use(express.json());
 
 app.get('/', (req, res) => {
     console.log("Youhou");
     res.send("Homepage here.");
 })
 
-//import de users route
+//import des route
 const usersRoutes = require('./src/routes/users.route');
 
 const flatsRoutes = require('./src/routes/flats.route');
 
-//on créer la route
-//et je récupère tout ce que j'ai sur mes utilisateurs en gros
+const districtsRoutes = require('./src/routes/districts.route');
+
+const requestsRoutes = require('./src/routes/requests.route');
+
+//je récupère mes route
 app.use('/utilisateurs', usersRoutes);
 
 app.use('/appartements', flatsRoutes);
 
+app.use('/arrondissement', districtsRoutes);
 
+app.use('/demandes', requestsRoutes);

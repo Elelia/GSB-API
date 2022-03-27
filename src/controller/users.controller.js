@@ -23,7 +23,7 @@ exports.getUserById = (req,res) => {
     })
 }
 
-//get user by id 
+//get user by login mot de passe
 exports.getUserByLoginMdp = (req,res) => {
     console.log("user by login mdp");
     //good je passe bien dessus

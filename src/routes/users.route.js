@@ -13,4 +13,7 @@ router.get('/:id', UsersController.getUserById);
 //get by login & mdp
 router.get('/:login/:mdp', UsersController.getUserByLoginMdp);
 
+//update one user
+router.put('/update/:num', UsersController.updateUserInfo);
+
 module.exports = router;

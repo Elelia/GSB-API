@@ -1,7 +1,7 @@
+const bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
-const bodyParser = require('body-parser');
 
 app.listen(port, () => {
     console.log(`Serveur à l'écoute ${port}`);
@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    console.log("Youhou");
     res.send("Homepage here.");
 })
 

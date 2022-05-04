@@ -27,6 +27,20 @@ Request.getAllRequests = (result) => {
     })
 };
 
+//get request by num client
+Request.getRequestByNumBuyer = (num, result) => {
+    dbConn.query("SELECT * FROM demandes WHERE num=?", num, (err, res) => {
+        if(err) {
+            console.log('Error while fetching request by num buyer', err);
+            result(null,err);
+        } 
+        else {
+            console.log('Success !');
+            result(null,res);
+        }
+    })
+};
+
 //get last request
 Request.getLastRequest = (result) => {
     dbConn.query("SELECT * FROM demandes order by numDem desc limit 1", (err, res) => {
@@ -56,7 +70,7 @@ Request.insertRequest = (requestData, result) => {
 };
 
 //insert into concerner
-Concern.insertConcern = (concernData, result) => {
+Request.insertConcern = (concernData, result) => {
     dbConn.query("INSERT INTO concerner SET ?", concernData, (err, res) => {
         if(err) {
             console.log('Error while insert concern', err);

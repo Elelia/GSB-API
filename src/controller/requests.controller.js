@@ -64,3 +64,13 @@ exports.getRequestsListByType = (req, res) => {
         res.send(requests);
     })
 }
+
+//get requests by numero client
+exports.getRequestsListByNumeroBuyer = (req, res) => {
+    RequestsModel.getRequestByNumBuyer(req.params.num, (err, requests) => {
+        console.log("Super les demandes par numéro client !");
+        if(err)
+        res.send(err);
+        res.send(requests);
+    })
+}

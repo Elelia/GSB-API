@@ -51,4 +51,20 @@ User.getUserByLoginMdp = (id, mdp, result) => {
     })
 }
 
+//on actualise les informations de l'utilisateur
+User.updateUser = (id, userReqData, result) => {
+    console.log('req data', id);
+    console.log('req data', userReqData);
+    dbConn.query("UPDATE utilisateurs SET nom=?, prenom=?, adresse=?, codeVille=?, telephone=? WHERE num=?", [userReqData.nom, userReqData.prenom, userReqData.adresse, userReqData.codeVille, userReqData.telephone, id], (err, res) => {
+        if(err) {
+            console.log('Error while updating user', err);
+            result(err, null);
+        }
+        else {
+            console.log('User updating successfully');
+            result(null, res);
+        }
+    })
+}
+
 module.exports = User;

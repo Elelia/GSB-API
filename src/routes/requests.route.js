@@ -10,11 +10,14 @@ router.get('/', RequestsController.getRequestsList);
 //get last request
 router.get('/last/', RequestsController.getRequestLast);
 
+//get last request
+router.get('/:num', RequestsController.getRequestsListByNumeroBuyer);
+
 //create new request
 router.post('/', RequestsController.createNewRequest);
 
 //create new concern
-router.post('/', RequestsController.createNewConcern);
+router.post('/concerner/', RequestsController.createNewConcern);
 
 //get requests by type
 router.get('/:type', RequestsController.getRequestsListByType);

@@ -1,4 +1,3 @@
-const User = require('../models/users');
 const UsersModel = require('../models/users');
 
 //get all users
@@ -8,14 +7,12 @@ exports.getUsersList = (req, res) => {
         if(err)
         res.send(err);
         res.send(users);
-        //ok c'est good je retrouve bien mes utilisateurs avec ça
     })
 }
 
 //get user by id 
 exports.getUserById = (req,res) => {
     console.log("user by id");
-    //good je passe bien dessus
     UsersModel.getUserById(req.params.id, (err, user) => {
         if(err)
         res.send(err);
@@ -27,7 +24,6 @@ exports.getUserById = (req,res) => {
 //get user by login mot de passe
 exports.getUserByLoginMdp = (req,res) => {
     console.log("user by login mdp");
-    //good je passe bien dessus
     UsersModel.getUserByLoginMdp(req.params.login, req.params.mdp, (err, user) => {
         if(err)
         res.send(err);

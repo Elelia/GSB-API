@@ -13,4 +13,7 @@ router.get('/posseder/:id', FlatsController.getFlatsListByProp);
 //get flats by numéro
 router.get('/:num', FlatsController.getFlatsById);
 
+//create new flat
+router.post('/', FlatsController.createNewFlat);
+
 module.exports = router;

@@ -1,6 +1,6 @@
 var dbConn = require('../../dbconfig');
 
-var Flat = (flat) => {
+var Flat = function(flat) {
     this.numAppart = flat.numAppart;
     this.typeAppart = flat.typeAppart;
     this.prixLoc = flat.prixLoc;
@@ -51,6 +51,20 @@ Flat.getAllFlatsById = (num, result) => {
         } 
         else {
             console.log('Flats by id appartement is a success');
+            result(null, res);
+        }
+    })
+};
+
+//insert into flat
+Flat.insertFlat = (flatData, result) => {
+    dbConn.query("INSERT INTO appartements SET ?", flatData, (err, res) => {
+        if(err) {
+            console.log('Error while insert flat', err);
+            result(null, err);
+        } 
+        else {
+            console.log('Insert flat is a success !');
             result(null, res);
         }
     })

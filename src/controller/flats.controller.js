@@ -29,3 +29,21 @@ exports.getFlatsById = (req, res) => {
         res.send(flats);
     })
 }
+
+//create new flat
+exports.createNewFlat = (req, res) => {
+    console.log('req data', req.body);
+    const flatReqData = new FlatsModel(req.body);
+    console.log('req data', flatReqData);
+    if(req.body.constructor === Object && Object.keys(req.body).length === 0) {
+        res.send(400).send({success: false, message: 'Something missing'});
+    } else {
+        console.log('success data');
+        FlatsModel.insertFlat(req.body, (err, request) => {
+            if(err)
+            res.send(err);
+            res.json({status: true, message: 'Success insert into request', data: request});
+            console.log("Super le insert into flat !");
+        })
+    }
+}
